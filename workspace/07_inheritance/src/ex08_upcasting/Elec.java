@@ -1,4 +1,4 @@
-package ex08_upcating;
+package ex08_upcasting;
 
 // 전자제품
 public class Elec {

@@ -1,4 +1,4 @@
-package ex08_upcating;
+package ex08_upcasting;
 
 public class MainClass {
 
