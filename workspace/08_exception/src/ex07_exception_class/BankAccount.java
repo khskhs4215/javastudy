@@ -44,7 +44,6 @@ public class BankAccount {
 			System.out.println(e.getMessage());
 			System.out.println("예외코드: " + e.getErrorCode());
 		}
-		
 	}
 	
 }
