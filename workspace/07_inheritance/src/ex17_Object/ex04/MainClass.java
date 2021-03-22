@@ -1,6 +1,4 @@
-package ex17_Object;
-
-import ex17_Object.ex04.Product;
+package ex17_Object.ex04;
 
 public class MainClass {
 
@@ -29,12 +27,6 @@ public class MainClass {
 			System.out.println("다른 종류의 제품입니다.");
 		}
 		
-		Object
-		
 	}
 
 }
-
-
-
-
