@@ -39,6 +39,42 @@ public class HashCodeMainClass {
 
 	public static void main(String[] args) {
 		
+		Integer a = 10;
+		System.out.println("a의 해시코드: " + a.hashCode());
+		
+		Double b = 1.5;
+		System.out.println("b의 해시코드: " + b.hashCode());
+		
+		String str = "hello";
+		System.out.println("str의 해시코드: " + str.hashCode());
+		
+		// 지금까지 살펴본 바에 따르면
+		// 내장된 클래스타입의 객체들은 나름의 해시코드가 있습니다.
+		
+		Dog dog = new Dog();
+		Cat cat = new Cat();
+		
+		System.out.println(dog);
+		System.out.printf("%x\n", dog.hashCode());  // Object의 해시코드
+		
+		System.out.println(cat);
+		System.out.printf("%x\n", cat.hashCode());  // Object의 해시코드
+		
+		// 중요.
+		// Object의 hashCode()는 객체의 메모리 주소를 반환한다.
+		
+		
+		// HashSet과 HashMap의 공통점은
+		// "중복이 불가능한 데이터"가 있다는 점입니다.
+		
+		// 중복 확인 유무
+		// 1. 해시코드 확인(hashCode())합니다. 해시코드가 같아야 다음 단계로 진행합니다.
+		// 2. 실제로 같은지 equals() 메소드로 비교합니다.
+		// 3. 그 결과가 같으면 "중복 데이터"가 있는 것으로 판단합니다.
+		
 	}
 	
 }
+
+class Dog {}
+class Cat {}
