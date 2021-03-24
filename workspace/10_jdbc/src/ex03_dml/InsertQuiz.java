@@ -3,6 +3,8 @@ package ex03_dml;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import connection.DBConnection;
+
 public class InsertQuiz {
 
 	public static void main(String[] args) {
@@ -12,13 +14,24 @@ public class InsertQuiz {
 		int[] noList = { 3, 4, 5 };
 		String[] nameList = { "david", "james", "jack" };
 		String[] departList = { "총무", "영업", "고객" };
-		String[] hireDateList = { "SYSDATE", "21/03/15", "21/03/20" };
+		String[] hireDateList = { "21/03/18", "21/03/15", "21/03/20" };
 		
 		Connection con = null;
 		PreparedStatement ps = null;
 		
 		try {
-			
+			con = DBConnection.getConnection();
+			String sql = "INSERT INTO staff VALUES (?, ?, ?, ?)";
+			ps = con.prepareStatement(sql);
+			int result = 0;
+			for (int i = 0; i < noList.length; i++) {
+				ps.setInt(1, noList[i]);
+				ps.setString(2, nameList[i]);
+				ps.setString(3, departList[i]);
+				ps.setString(4, hireDateList[i]);
+				result += ps.executeUpdate();
+			}
+			System.out.println("총 " + result + "명의 staff이 삽입되었습니다.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
