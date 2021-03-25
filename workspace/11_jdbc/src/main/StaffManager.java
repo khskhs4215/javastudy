@@ -67,7 +67,6 @@ public class StaffManager {
 		int no = sc.nextInt();
 		
 		StaffDto staffDto = dao.selectOneByNo(no);
-		
 		System.out.print("수정할 내용을 선택하세요(1:이름, 2:부서) >>> ");
 		int choice = sc.nextInt();
 		if (choice == 1) {
