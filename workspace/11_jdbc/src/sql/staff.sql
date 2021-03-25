@@ -12,3 +12,17 @@ CREATE TABLE staff
 );
 
 SELECT no, name, department, hireDate FROM staff;
+
+SELECT MAX(no) FROM staff;
+
+
+
+
+
+
+
+
+
+
+
+
