@@ -2,6 +2,7 @@ package quiz01;
 
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 // 사용자로부터 국, 영, 수 점수를 입력 받은 뒤,
