@@ -1,6 +1,7 @@
 package ex02_socket;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -32,6 +33,12 @@ public class ServerMainClass {
 				// 클라이언트의 주소
 				InetSocketAddress isa = (InetSocketAddress) client.getRemoteSocketAddress();
 				System.out.println("[" + isa.getHostName() + "] 클라이언트가 접속되었습니다.");
+				
+				// 클라이언트에게 웰컴 메시지 보내기
+				String message = "Welcome to My Server! 안녕!";
+				OutputStream os = client.getOutputStream();
+				os.write(message.getBytes("UTF-8"));
+				os.flush();  // (혹시) 스트림에 남아 있는 데이터를 강제로 밀어내기
 				
 			}
 			
