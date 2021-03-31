@@ -1,5 +1,6 @@
 package ex03_socket;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -12,6 +13,7 @@ public class ClientMainClass {
 		Socket client = null;
 		Scanner sc = null;
 		BufferedOutputStream bos = null;
+		BufferedInputStream bis = null;
 		
 		try {
 			
@@ -28,13 +30,20 @@ public class ClientMainClass {
 			bos.write(message.getBytes("UTF-8"));
 			bos.flush();
 			
+			// 서버가 보낸 답변 메시지 받기
+			bis = new BufferedInputStream(client.getInputStream());
+			byte[] b = new byte[1024];
+			int length = bis.read(b);
+			String receiveMsg = new String(b, 0, length, "UTF-8");
+			System.out.println(receiveMsg);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if ( !client.isClosed() ) {
-					client.close();
-				}
+				if (bis != null) { bis.close(); }
+				if (bos != null) { bos.close(); }
+				if (!client.isClosed()) { client.close(); }
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
